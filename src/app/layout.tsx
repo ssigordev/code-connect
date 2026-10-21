@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body className="m-0 flex min-h-screen flex-col bg-[linear-gradient(180deg,#0E1112_0%,#00090E_100%)]">
+      <body className="m-0 flex min-h-screen bg-linear-to-b from-[rgb(17,0,255)] to-[rgb(0,225,255)]">
         <Aside />
         {children}
       </body>
