@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body className="m-0 flex min-h-screen bg-linear-to-b from-[rgb(17,0,255)] to-[rgb(0,225,255)]">
+      <body className="m-0 flex min-h-screen bg-linear-to-tl from-[rgb(5,0,50)] to-[rgb(0,0,0)]">
         <Aside />
         {children}
       </body>
