@@ -1,6 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    // remotePatterns: [
+    //   new URL("https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/**"),
+    // ],
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "raw.githubusercontent.com",
+          port: "",
+          pathname: "**"
+        }
+      ]
+  },
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,

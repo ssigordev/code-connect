@@ -1,6 +1,11 @@
-
-import { Aside } from "@/components/Aside";
+import { Poppins } from "next/font/google";
+import { Aside } from "@/components/Aside/page";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata = {
   title: "Code Connect",
@@ -10,9 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body className="m-0 flex min-h-screen bg-linear-to-tl from-[rgb(5,0,50)] to-[rgb(0,0,0)]">
-        <Aside />
-        {children}
+      <body className={poppins.className}>
+        <div className="m-0 flex min-h-screen bg-linear-to-tl from-[rgb(5,0,50)] to-[rgb(0,0,0)]">
+          <Aside />
+
+          {children}
+        </div>
       </body>
     </html>
   );
