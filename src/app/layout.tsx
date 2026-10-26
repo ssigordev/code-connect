@@ -18,7 +18,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className={poppins.className}>
         <div className="m-0 flex min-h-screen bg-linear-to-tl from-[rgb(5,0,50)] to-[rgb(0,0,0)]">
           <Aside />
-
           {children}
         </div>
       </body>

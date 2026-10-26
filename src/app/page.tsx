@@ -14,13 +14,15 @@ async function getAllposts(page) {
 export default async function Home() {
   const { data: posts, prev, next } = await getAllposts(1);
   return (
-    <main >
+    <main>
       <div className="flex flex-wrap justify-center w-1/2 ">
         {posts.map(post => (
           <CardPost key={post.id} post={post} />
         ))}
-        {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white px-4 py-2 rounded-md">Anterior</Link>}
-        {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white px-4 py-2 rounded-md">Próximo</Link>}
+      </div>
+      <div>
+        {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-80 mt-6 mb-6 ml-23 rounded-md">Anterior</Link>}
+        {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-80 mt-6 mb-6 ml-23 rounded-md">Próximo</Link>}
       </div>
 
     </main>

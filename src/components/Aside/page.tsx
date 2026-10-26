@@ -4,7 +4,7 @@ import { House, User, Phone } from "lucide-react";
 
 export const Aside = () => {
   return (
-    <aside className="w-64 flex flex-col items-center h-screen bg-gray-800 text-white p-4 ml-6 mt-6 rounded-xl">
+    <aside className="w-64 flex flex-col items-center bg-gray-800 text-white p-4 ml-6 mt-6 rounded-xl">
       <Logo
         aria-label="Logo"
         role="img"
