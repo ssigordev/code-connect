@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export const CardPost = ({ post }) => {
   return (
-    <article className="w-80 mt-6 ml-6 flex flex-col bg-gray-800 rounded-lg shadow-md">
+    <article className="w-80 mt-6 mb-6 ml-6 flex flex-col bg-gray-800 rounded-lg shadow-md">
       <header>
         <figure>
           <Image src={post.cover}

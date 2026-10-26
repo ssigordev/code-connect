@@ -1,24 +1,9 @@
 import { CardPost } from "@/components/CardPost/page";
 import logger from "@/logger";
+import Link from "next/link";
 
-const post = {
-  "id": 1,
-  "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/introducao-ao-react.png",
-  "title": "Introdução ao React",
-  "slug": "introducao-ao-react",
-  "body": "Neste post, vamos explorar os conceitos básicos do React, uma biblioteca JavaScript para construir interfaces de usuário. Vamos cobrir componentes, JSX e estados.",
-  "markdown": "```javascript\nfunction HelloComponent() {\n  return <h1>Hello, world!</h1>;\n}\n```",
-  "author": {
-    "id": 101,
-    "name": "Ana Beatriz",
-    "username": "mariajamilly_dev",
-    "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png"
-  }
-}
-
-async function getAllposts() {
-
-  const response = await fetch('http://localhost:3042/posts');
+async function getAllposts(page) {
+  const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`);
   if (!response.ok) {
     logger.error('ops, ocorreu um erro ao buscar os posts');
   }
@@ -27,13 +12,15 @@ async function getAllposts() {
 }
 
 export default async function Home() {
-  const posts = await getAllposts();
+  const { data: posts, prev, next } = await getAllposts(1);
   return (
     <main >
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center w-1/2 ">
         {posts.map(post => (
           <CardPost key={post.id} post={post} />
         ))}
+        {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white px-4 py-2 rounded-md">Anterior</Link>}
+        {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white px-4 py-2 rounded-md">Próximo</Link>}
       </div>
 
     </main>
