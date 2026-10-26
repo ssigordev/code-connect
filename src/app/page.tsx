@@ -1,4 +1,5 @@
 import { CardPost } from "@/components/CardPost/page";
+import logger from "@/logger";
 
 const post = {
   "id": 1,
@@ -10,15 +11,31 @@ const post = {
   "author": {
     "id": 101,
     "name": "Ana Beatriz",
-    "username": "anabeatriz_dev",
+    "username": "mariajamilly_dev",
     "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png"
   }
 }
 
-export default function Home() {
+async function getAllposts() {
+
+  const response = await fetch('http://localhost:3042/posts');
+  if (!response.ok) {
+    logger.error('ops, ocorreu um erro ao buscar os posts');
+  }
+  logger.info('Posts buscados com sucesso');
+  return response.json();
+}
+
+export default async function Home() {
+  const posts = await getAllposts();
   return (
     <main >
-        <CardPost post={post} />
+      <div className="flex flex-wrap justify-center">
+        {posts.map(post => (
+          <CardPost key={post.id} post={post} />
+        ))}
+      </div>
+
     </main>
   );
 }
