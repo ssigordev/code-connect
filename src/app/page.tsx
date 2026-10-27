@@ -15,14 +15,16 @@ export default async function Home() {
   const { data: posts, prev, next } = await getAllposts(1);
   return (
     <main>
-      <div className="flex flex-wrap justify-center w-1/2 ">
-        {posts.map(post => (
-          <CardPost key={post.id} post={post} />
-        ))}
-      </div>
       <div>
-        {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-80 mt-6 mb-6 ml-23 rounded-md">Anterior</Link>}
-        {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-80 mt-6 mb-6 ml-23 rounded-md">Próximo</Link>}
+        <div className="flex  gap-4 flex-wrap justify-center w-1/2 ">
+          {posts.map(post => (
+            <CardPost key={post.id} post={post} />
+          ))}
+        </div>
+        <div className=" flex ml-6">
+          {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-70 mt-6 mb-6 ml-23 rounded-md">Anterior</Link>}
+          {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-70  rounded-md">Próximo</Link>}
+        </div>
       </div>
 
     </main>

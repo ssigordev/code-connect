@@ -11,12 +11,12 @@ export const Aside = () => {
         className="mb-4 size-40 text-white"
       />
       <nav className="flex flex-col gap-4">
-        <div className="flex justify-center items-center w-50 h-15 gap-2 bg-gray-700  rounded-xl hover:text-[rgb(0,217,255)] hover:bg-[rgb(73,100,139)] border border-transparent hover:border hover:border-[rgb(0,217,255)] transition duration-500 ease-in-out">
+        <a
+          href="./"
+          className="flex justify-center items-center w-50 h-15 gap-2 bg-gray-700  rounded-xl hover:text-[rgb(0,217,255)] hover:bg-[rgb(73,100,139)] border border-transparent hover:border hover:border-[rgb(0,217,255)] transition duration-500 ease-in-out">
           <House size={20} />
-          <a href="/">
-            Home
-          </a>
-        </div>
+          Home
+        </a>
         <div>
           <a
             href='/about'
