@@ -12,7 +12,7 @@ async function getAllposts(page) {
 }
 
 export default async function Home() {
-  const { data: posts, prev, next } = await getAllposts(1);
+  const { data: posts, prev, next } = await getAllposts(2);
   return (
     <main>
       <div>
@@ -22,7 +22,7 @@ export default async function Home() {
           ))}
         </div>
         <div className=" flex ml-6">
-          {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-70 mt-6 mb-6 ml-23 rounded-md">Anterior</Link>}
+          {prev && <Link href={`/?page=${prev}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-70  rounded-md">Anterior</Link>}
           {next && <Link href={`/?page=${next}`} className="bg-blue-500 text-white justify-center items-center px-4 flex h-10 w-70  rounded-md">Próximo</Link>}
         </div>
       </div>
